@@ -1,0 +1,22 @@
+{
+  "name": "electron-tuto-2-todo",
+  "version": "1.0.0",
+  "description": "Tuto 2 electron avancé : todolist",
+  "main": "index.js",
+  "scripts": {
+    "electron": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svan001/electron-tuto-2-todo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/svan001/electron-tuto-2-todo/issues"
+  },
+  "homepage": "https://github.com/svan001/electron-tuto-2-todo#readme",
+  "dependencies": {
+    "electron": "^2.0.5"
+  }
+}
