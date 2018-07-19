@@ -13,6 +13,9 @@ app.on('ready', () => {
     // Main window
     mainWindow = new BrowserWindow({});
     mainWindow.loadURL(`file://${__dirname}/main.html`);
+   
+    // Event
+    mainWindow.on('closed', () => app.quit());
 
     // Menu
     const mainMenu = Menu.buildFromTemplate(menuTemplate);
@@ -27,7 +30,6 @@ function createAddWindow() {
     });
     addWindow.loadURL(`file://${__dirname}/add.html`);
 }
-
 
 const menuTemplate = [
     // First dropDown menu
