@@ -13,7 +13,7 @@ app.on('ready', () => {
     // Main window
     mainWindow = new BrowserWindow({});
     mainWindow.loadURL(`file://${__dirname}/main.html`);
-   
+
     // Event
     mainWindow.on('closed', () => app.quit());
 
@@ -62,4 +62,17 @@ const menuTemplate = [
 if (process.platform === 'darwin') {
     // Add emtpy object in first position for mac compatibility
     menuTemplate.unshift({});
+}
+
+if (process.env.NODE_ENV !== 'production') {
+    menuTemplate.push({
+        label: 'DEV',
+        submenu: [{
+            label: 'Dev tools',
+            accelerator: process.platform !== 'darwin' ? 'Ctrl+Alt+D' : 'Command+Alt+I',
+            click(item, focusedWindow) {
+                focusedWindow.toggleDevTools();
+            }
+        }]
+    });
 }
