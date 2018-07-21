@@ -76,11 +76,15 @@ if (process.env.NODE_ENV !== 'production') {
     menuTemplate.push({
         label: 'DEV',
         submenu: [{
-            label: 'Dev tools',
-            accelerator: process.platform !== 'darwin' ? 'Ctrl+Alt+D' : 'Command+Alt+I',
-            click(item, focusedWindow) {
-                focusedWindow.toggleDevTools();
+                label: 'Dev tools',
+                accelerator: process.platform !== 'darwin' ? 'Ctrl+Alt+D' : 'Command+Alt+I',
+                click(item, focusedWindow) {
+                    focusedWindow.toggleDevTools();
+                }
+            },
+            {
+                role: 'reload'
             }
-        }]
+        ]
     });
 }
