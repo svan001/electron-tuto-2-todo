@@ -3,7 +3,8 @@ const electron = require('electron');
 const {
     app,
     BrowserWindow,
-    Menu
+    Menu,
+    ipcMain
 } = electron;
 
 let mainWindow;
@@ -29,7 +30,14 @@ function createAddWindow() {
         height: 200
     });
     addWindow.loadURL(`file://${__dirname}/add.html`);
+    // Optimisation for garbage collection
+    addWindow.on('closed', () => addWindow = null);
 }
+
+ipcMain.on('todo:add', (event, todo) => {
+    mainWindow.webContents.send('todo:add', todo);
+    addWindow.close();
+});
 
 const menuTemplate = [
     // First dropDown menu
