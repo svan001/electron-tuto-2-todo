@@ -44,11 +44,16 @@ const menuTemplate = [
     {
         label: 'File',
         submenu: [{
-                label: 'New Todo',
-                click() {
-                    createAddWindow();
-                }
-            },
+            label: 'New Todo',
+            click() {
+                createAddWindow();
+            }
+        },{
+            label: 'Clear Todo',
+            click() {
+                mainWindow.webContents.send('todo:clearAll');
+            }
+        },
             {
                 label: 'Quit',
                 // 'Ctrl+Q' direct or ( () => {} )()
